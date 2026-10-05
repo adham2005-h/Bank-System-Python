@@ -1,52 +1,47 @@
 # Bank System
 
-مشروع بنك بسيط من الكونسول، عملته أثناء تعلم OOP بلغة Python. قسمت البرنامج إلى كلاسات للحساب والعميل والبنك والمدير، واستخدمت الوراثة وإعادة تعريف الدوال والخصائص الخاصة لتنظيم البيانات والعمليات.
+A console bank simulation I built while learning OOP in Python. The project separates accounts, customers, bank operations and admin login into classes, with inheritance and method overriding.
 
-## الوظائف
+## Features
 
-- إنشاء حساب عميل وتسجيل الدخول برقم الحساب وكلمة المرور.
-- إيداع مبلغ وسحبه ضمن الرصيد المتوفر.
-- تحويل مبلغ إلى حساب آخر، مع تسجيل العملية عند الطرفين.
-- عرض الرصيد وسجل العمليات وتغيير كلمة المرور.
-- دخول المدير لعرض الحسابات والبحث عنها وحذفها وحساب مجموع الأرصدة.
+- Create a customer account and log in with an account number and password.
+- Deposit and withdraw money within the available balance.
+- Transfer to another account and record the operation for both accounts.
+- View balances and transaction history, and change passwords.
+- Let the admin list, search and delete accounts, and view the total balance.
 
-أرقام الحسابات تحتوي على أرقام فقط ولا تتكرر، والاسم لا يكون فارغًا. كلمة المرور لا تقل عن أربعة أحرف ولا تكون فراغات فقط. الرصيد الأولي يقبل الصفر، أما مبالغ الإيداع والسحب والتحويل فتكون موجبة ومحدودة. التحويل إلى نفس الحساب غير مسموح.
+Account numbers contain digits only and must be unique. Names cannot be blank. Passwords require at least four characters and cannot contain only spaces. Initial balances can be zero; transaction amounts must be finite and positive. Transfers to the same account are rejected.
 
-## التشغيل
+## Run locally
 
-يحتاج المشروع إلى Python 3، ويستخدم المكتبات القياسية فقط. من مجلد المشروع شغّل:
+Install Python 3. No external packages are required. From the project folder:
 
 ```sh
 python main.py
 ```
 
-تظهر قائمة لإنشاء حساب أو دخول العميل أو دخول المدير. إدخال كلمات المرور يتم باستخدام `getpass`، لذلك الأفضل تشغيل البرنامج من Terminal.
+Run the program in a terminal so `getpass` can hide password input.
 
-بيانات دخول المدير في هذه المحاكاة:
+## Files
 
-- اسم المستخدم: `admin`
-- كلمة المرور: `1234`
-
-## الملفات
-
-| الملف | دوره |
+| File | Responsibility |
 | --- | --- |
-| `account.py` | بيانات الحساب، الإيداع والسحب ودعم التحويل وسجل العمليات. |
-| `customer.py` | كلاس `Customer` يرث من `Account` ويضيف التحويل ويعيد تعريف عرض المعلومات. |
-| `bank.py` | حفظ الحسابات في قاموس وإنشاؤها والبحث عنها وحذفها والتحقق من الدخول. |
-| `admin.py` | بيانات المدير والتحقق من دخوله. |
-| `main.py` | دوال القوائم وقراءة الإدخال وتشغيل البرنامج. |
+| account.py | Account data, balance operations and transaction history. |
+| customer.py | Customer inherits from Account and provides transfers. |
+| bank.py | Account dictionary, creation, login, lookup, deletion and totals. |
+| admin.py | Demo admin credentials and login checks. |
+| main.py | Menu functions, input helpers and the entry point. |
 
-## مخطط UML
+## UML
 
-المخطط يوضح الكلاسات والعلاقات وأهم الدوال. `main.py` ملف يحتوي على دوال، وليس كلاسًا.
+`main.py` is a module containing functions, rather than a class.
 
 ![Bank System UML](docs/uml.svg)
 
-## حدود المشروع
+## Project scope
 
-هذا المشروع محاكاة تعليمية. الحسابات وسجل العمليات موجودة في الذاكرة فقط، وتختفي عند إغلاق البرنامج. لا توجد قاعدة بيانات أو مدفوعات حقيقية، وكلمات مرور العملاء محفوظة كنص داخل الذاكرة. ركزت فيه على أساسيات OOP وعمليات الحسابات من الكونسول.
+This is an educational simulation. Accounts and transactions are stored in memory and disappear when the program exits. Customer passwords are plain text in memory. There is no database or real payment processing.
 
-## صاحب المشروع
+## Author
 
 Adham Muayad Hashem
