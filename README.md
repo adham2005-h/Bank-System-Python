@@ -22,6 +22,14 @@ python main.py
 
 Run the program in a terminal so `getpass` can hide password input.
 
+## Demo login
+
+The educational admin login is `admin` / `1234`. Create a sample customer account to explore customer operations.
+
+## What I practiced
+
+Encapsulation, inheritance, method overriding, dictionaries, transaction history and validating input.
+
 ## Files
 
 | File | Responsibility |
